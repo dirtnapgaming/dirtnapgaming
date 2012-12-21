@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+legacy_ipb:
+  username: "legacy_ipb"
+  email: "legacy.ipb@localhost.com"
+  legacy_password_salt: "lfaj41"
+  legacy_password_hash: <%= Digest::MD5.hexdigest([Digest::MD5.hexdigest('lfaj41'), Digest::MD5.hexdigest('password123')].join) %>
+  legacy_encryption_method: 'ipboard'
+
+legacy_vb:
+  username: "legacy_vb"
+  email: "legacy.vb@localhost.com"
+  legacy_password_salt: "has4w"
+  legacy_password_hash: <%= Digest::MD5.hexdigest([Digest::MD5.hexdigest('password123'), 'has4w'].join) %>
+  legacy_encryption_method: 'vbulletin'
